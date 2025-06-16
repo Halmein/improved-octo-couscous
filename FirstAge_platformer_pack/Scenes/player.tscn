@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwlvjw3ufoded"]
+
+[ext_resource type="Script" uid="uid://drfaoxjiaseru" path="res://FirstAge_platformer_pack/Scripts/player.gd" id="1_wypk7"]
+[ext_resource type="Texture2D" uid="uid://dejb7xl06qxg7" path="res://FirstAge_platformer_pack/Sprites/main_character.png" id="1_y285w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y285w"]
+atlas = ExtResource("1_y285w")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wypk7"]
+atlas = ExtResource("1_y285w")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77yqv"]
+atlas = ExtResource("1_y285w")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv13f"]
+atlas = ExtResource("1_y285w")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36c35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y285w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wypk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77yqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv13f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y285w"]
+size = Vector2(10, 14)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wypk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_36c35")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.485149
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_y285w")

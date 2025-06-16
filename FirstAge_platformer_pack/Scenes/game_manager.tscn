@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcjtxakvwtode"]
+
+[ext_resource type="Script" uid="uid://ckcle0pak5gb7" path="res://FirstAge_platformer_pack/Scripts/game_manager.gd" id="1_lwjag"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_lwjag")
