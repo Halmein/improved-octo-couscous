@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbo0wjbetoc38"]
+
+[ext_resource type="Texture2D" uid="uid://ci7hv4aeychhs" path="res://FirstAge_platformer_pack/Sprites/BG_1.png" id="1_2ah3e"]
+[ext_resource type="Shader" uid="uid://chv58ntftqic7" path="res://FirstAge_platformer_pack/Scripts/distortion.gdshader" id="2_mmooe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1k6x"]
+shader = ExtResource("2_mmooe")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wak03"]
+noise_type = 3
+frequency = 0.0537
+fractal_type = 0
+fractal_octaves = 8
+fractal_weighted_strength = 0.15
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r8s2i"]
+width = 16
+height = 16
+bump_strength = 3.5
+normalize = false
+noise = SubResource("FastNoiseLite_wak03")
+
+[node name="ShaderTest" type="Node2D"]
+
+[node name="Bg1" type="Sprite2D" parent="."]
+position = Vector2(-43, 19)
+texture = ExtResource("1_2ah3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_h1k6x")
+position = Vector2(254, 74)
+scale = Vector2(11.9567, 10.8453)
+texture = SubResource("NoiseTexture2D_r8s2i")
+region_rect = Rect2(19, 50, 26, 30)
